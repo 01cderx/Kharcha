@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const connectDB = require("./config/db")
+const cors = require('cors')
 
 dotenv.config({path: './config/config.env'})
 
@@ -13,6 +14,13 @@ const transactions = require('./routes/transactions')
 
 
 const app = express();
+
+app.use(cors({
+  origin: 'https://frontend-kharcha.vercel.app', // your frontend domain
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  credentials: true
+}));
+
 
 app.use(express.json());
 
