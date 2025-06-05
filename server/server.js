@@ -16,11 +16,12 @@ const transactions = require('./routes/transactions')
 const app = express();
 
 app.use(cors({
-  origin: 'https://frontend-kharcha.vercel.app', // your frontend domain
+  origin: 'https://frontend-kharcha.vercel.app/', 
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
-  credentials: true
+  credentials: true 
 }));
 
+app.use(cors())
 
 app.use(express.json());
 
