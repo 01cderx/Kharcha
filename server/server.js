@@ -15,20 +15,10 @@ const transactions = require('./routes/transactions')
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://frontend-kharcha.vercel.app/', 
-  methods: ['GET', 'POST', 'DELETE', 'PUT'],
-  credentials: true 
-}));
-
 app.use(cors())
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'));
-    
-}
 
 app.use('/api/v1/transactions', transactions)
 
